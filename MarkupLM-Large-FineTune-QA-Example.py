@@ -1,5 +1,6 @@
 #Adapted from NielsRogge markuplm code samples and QA huggingface tutorial from Cloudera Fast Forward Labs
 
+#Ensure that transformers is installed from NielsRogge's transformers markuplm branch
 from transformers import MarkupLMTokenizer, MarkupLMModel, MarkupLMForQuestionAnswering
 import torch
 from transformers import set_seed
