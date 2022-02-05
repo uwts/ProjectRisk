@@ -80,10 +80,7 @@ labels = risk_df['Risk'].to_numpy()
 
 # Let's see how a Zero-Shot classification would perform on the data
 
-#ZP - Trying a smaller model. Seems to be faster than the default ~facebook large mnli.
-#ZP - Added device=0 which I believe uses GPU
-classifier = pipeline("zero-shot-classification", model="typeform/distilbert-base-uncased-mnli", device=0)
-
+classifier = pipeline("zero-shot-classification", device=0)
 
 #classifier = pipeline("zero-shot-classification")
 
