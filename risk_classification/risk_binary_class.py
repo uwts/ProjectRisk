@@ -263,3 +263,45 @@ cm = confusion_matrix(test_labels, preds)
 disp_cm = ConfusionMatrixDisplay(confusion_matrix=cm)
 disp_cm.plot()
 
+# Delete model and trainer, and clear cache to save memory
+del model
+del trainer
+torch.cuda.empty_cache()
+
+# https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment
+
+twit_tokenizer = AutoTokenizer.from_pretrained("cardiffnlp/twitter-roberta-base-sentiment")
+
+dat_tuple = split_encode(risk_df, 'Sentences', 'Risk', twit_tokenizer)
+
+# Convert data to torch dataset
+
+train_dataset = RiskDataset(dat_tuple[0][0], dat_tuple[0][1])
+val_dataset = RiskDataset(dat_tuple[1][0], dat_tuple[1][1])
+test_dataset = RiskDataset(dat_tuple[2][0], dat_tuple[2][1])
+
+test_labels = dat_tuple[2][1]
+
+model = AutoModelForSequenceClassification.from_pretrained("cardiffnlp/twitter-roberta-base-sentiment", num_labels=2, ignore_mismatched_sizes=True)
+
+training_args = TrainingArguments("twitter_train")
+
+trainer = CustomTrainer(model=model, args=training_args, train_dataset=train_dataset, eval_dataset=val_dataset)
+
+trainer.train()
+
+# Predict training data set
+# https://huggingface.co/course/chapter3/3?fw=pt
+
+pred = trainer.predict(test_dataset)
+preds = np.argmax(pred.predictions, axis=-1)
+
+test_acc = np.sum(preds == test_labels) / len(test_labels)
+
+print('Test Accuracy: {}'.format(test_acc*100))
+
+# Confusion matrix
+
+cm = confusion_matrix(test_labels, preds)
+disp_cm = ConfusionMatrixDisplay(confusion_matrix=cm)
+disp_cm.plot()
