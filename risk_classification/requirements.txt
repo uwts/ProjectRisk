@@ -1,0 +1,10 @@
+Below are dependencies required to run the .py scripts.
+
+1. transformers: https://huggingface.co/docs/transformers/index
+2. torch:https://pytorch.org/
+3. os: https://docs.python.org/3/library/os.html
+4. pandas: https://pandas.pydata.org/
+5. numpy: https://numpy.org/
+6. sklearn: https://scikit-learn.org/stable/
+7. nltk: https://www.nltk.org/
+8. tika: https://github.com/chrismattmann/tika-python
