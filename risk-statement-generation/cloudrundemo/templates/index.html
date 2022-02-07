@@ -1,0 +1,31 @@
+<!doctype html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Convert Doc to Candidate Risks</title>
+    <link rel="stylesheet" href="https://unpkg.com/awsm.css/dist/awsm_theme_big-stone.min.css">
+</head>
+
+<body>
+    <header>
+        <h1><center>Convert <code>Program Docs</code> to <code>Candidate Risks (alpha)</code></center></h1>
+        <p>
+            Takes a txt file program doc and (tries) to convert it to a list of candidate program 
+        </p>
+    </header>
+    <main>
+        <form method="post" enctype=multipart/form-data> 
+            <label for="file">Upload your file</label>
+            <input type="file" name="file" id="file">
+            <input type="submit" value="Upload">
+        </form>
+        <br>
+        <p><center>Operation may time out with large text files.</center></p>
+		
+		<p><center>Alpha: Occasionally translates results into foreign languages for some reason.</center></p>
+		<p><center>  </center></p>
+    </main>
+    <footer>
+        <!-- Footer here -->
+    </footer>
+</body>
