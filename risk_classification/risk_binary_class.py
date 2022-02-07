@@ -79,7 +79,7 @@ risk_df['Risk'].value_counts()
 labels = risk_df['Risk'].to_numpy()
 
 # Let's see how a Zero-Shot classification would perform on the data
-
+## NOTE: If not running a GPU change device = 1
 classifier = pipeline("zero-shot-classification", device=0)
 
 #classifier = pipeline("zero-shot-classification")
