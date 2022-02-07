@@ -20,13 +20,13 @@ import pandas as pd
 # Directory path to the folder that contains files to be parsed
 # NOTE: Directory path will need to be changed to run locally!
 
-astrobee_path = '/Astrobee Files/'
-synbio_path = '/SynBio Files'
+astrobee_path = './Astrobee Files/'
+synbio_path = './SynBio Files'
 
 # Directory path to folder for the output files
 # NOTE: Directory path will need to be changed to run locally!
 
-out_path = '/Risk Data/'
+out_path = './Risk Data/'
 
 # Get list of all of the files in the directory
 
