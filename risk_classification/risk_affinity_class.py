@@ -86,7 +86,8 @@ labels = risk_df['Risk_Affinity'].to_numpy()
 risk_df.head()
 
 #ZP - Trying a smaller model. Seems to be faster than the default ~facebook large mnli.
-#ZP - Added device=0 which I believe uses GPU
+#ZP - Added device=0 which uses GPU
+## NOTE: If no GPU change device = 1
 classifier = pipeline("zero-shot-classification", device=0, multi_class=True)
 
 
