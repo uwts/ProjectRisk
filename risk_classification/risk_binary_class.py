@@ -37,7 +37,7 @@ from torch import nn
 from sklearn.utils import compute_class_weight
 
 # Get direcotry for Risk Classified files
-risk_data_dir = '/Risk Data/'
+risk_data_dir = './Risk Data/'
 
 # Get list of files
 risk_files = os.listdir(risk_data_dir)
