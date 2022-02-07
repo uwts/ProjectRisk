@@ -49,7 +49,7 @@ from sklearn.utils import compute_class_weight
 
 
 # Set directory to folder containing Risk Data
-risk_data_dir = '/Risk Data/'
+risk_data_dir = './Risk Data/'
 
 # Get list of files
 risk_files = os.listdir(risk_data_dir)
